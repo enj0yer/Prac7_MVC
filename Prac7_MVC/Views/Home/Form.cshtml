@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Заполните форму";
+}
+
+@model Prac7_MVC.Models.Person
+@using (Html.BeginForm())
+{
+    <p>Фамилия</p> @Html.TextBoxFor(model => model.Surname)
+    @Html.ValidationMessageFor(model => model.Surname)
+
+    <p>Имя</p> @Html.TextBoxFor(model => model.Name)
+    @Html.ValidationMessageFor(model => model.Name)
+
+    <p>Отчество</p> @Html.TextBoxFor(model => model.Patronymic)
+    @Html.ValidationMessageFor(model => model.Patronymic)
+
+    <p>Номер телефона</p> @Html.TextBoxFor(model => model.PhoneNumber)
+    @Html.ValidationMessageFor(model => model.PhoneNumber)
+
+    <p>Почта</p> @Html.TextBoxFor(model => model.Email)
+    @Html.ValidationMessageFor(model => model.Email)
+
+    <p>Придете</p> @Html.DropDownListFor(model => model.WillCome, new List<SelectListItem> {
+              new SelectListItem { Value = "Yes", Text = "Приду", Selected = true },
+              new SelectListItem { Value = "No", Text = "Не приду"}})
+    <br />
+
+    <input type="submit" value="Отправить">
+}
